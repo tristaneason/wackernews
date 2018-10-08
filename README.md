@@ -18,3 +18,4 @@ $ npm start # Or yarn start
 # generate static project
 $ npm run generate # Or yarn run generate
 
+# Point your browser to http://localhost:3000
