@@ -1,4 +1,5 @@
 import axios from '~/plugins/axios'
+import { knex } from '~/plugins/db'
 
 export const state = () => ({
     ids: [],
@@ -27,6 +28,14 @@ export const actions = {
         const realItems = items.map(
             item => item ? item : { title: "Failed to load", id: 0 }
         )
+
+        // knex.schema.createTable('stories', table => {
+        //     table.increments('id')
+        //     table.string('stories')
+        //     table.time('created_at')
+        // })
+        //
+        // knex('stories').insert(realItems)
 
         commit('setItems', realItems)
     }
