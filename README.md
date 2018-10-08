@@ -1,4 +1,4 @@
-# wacker-news
+# Wackernews
 
 > Like hackernews, but wacker.
 
