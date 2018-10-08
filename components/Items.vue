@@ -1,17 +1,21 @@
 <template>
     <div class="code">
         <ul class="list pa2">
-            <li class="item" v-for="item in items" :key="item.id">
+            <li class="item f6" v-for="item in items" :key="item.id">
                 <div class="score">
                     {{item.score}}
                 </div>
                 <div class="title">
-                    <template>
-                        <a :href="item.url" target="_blank">{{item.title}}</a>
+                    <template v-if="item.url">
+                        <a class="f6" :href="item.url" target="_blank">{{item.title}}</a>
+                    </template>
+                    <template v-else>
+                        <span class="f6">{{item.title}}</span>
                     </template>
                 </div>
                 <div class="details">
-                    by {{item.by}} {{item.time | timeSince}} ago
+                    by <nuxt-link :to="`/user/${item.by}`">{{item.by}}</nuxt-link>
+                    <p class="ma0 i f6">{{item.time | timeSince}} ago</p>
                 </div>
                 <template v-if="item.descendants">
                     <div class="comments">
