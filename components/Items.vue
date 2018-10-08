@@ -3,18 +3,18 @@
         <ul class="list pa2">
             <li class="item f6" v-for="item in items" :key="item.id">
                 <div class="score">
-                    {{item.score}}
+                    &uarr; {{item.score}}
                 </div>
                 <div class="title">
                     <template v-if="item.url">
-                        <a class="f6" :href="item.url" target="_blank">{{item.title}}</a>
+                        <a class="url f6" :href="item.url" target="_blank">{{item.title}}</a>
                     </template>
                     <template v-else>
                         <span class="f6">{{item.title}}</span>
                     </template>
                 </div>
                 <div class="details">
-                    by <nuxt-link :to="`/user/${item.by}`">{{item.by}}</nuxt-link>
+                    by <nuxt-link class="url" :to="`/user/${item.by}`">{{item.by}}</nuxt-link>
                     <p class="ma0 i f6">{{item.time | timeSince}} ago</p>
                 </div>
                 <template v-if="item.descendants">
@@ -40,6 +40,7 @@
 
 <style scoped>
     .item {
+        border-bottom: 1px solid #f54134;
         display: grid;
         grid: repeat(4, 1.5rem) / repeat(10, 1fr);
         grid-row-gap: 1rem;
@@ -67,5 +68,9 @@
         grid-row: 3 / -1;
         grid-column: 6 / -2;
         justify-self: end;
+    }
+
+    .url {
+        color: #f54134;
     }
 </style>
